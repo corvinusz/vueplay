@@ -15,5 +15,4 @@ yarn-error.log*
 *.sln
 *.tar.gz
 
-# Development inventory file
-inventory
+
