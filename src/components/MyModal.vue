@@ -1,31 +1,42 @@
 <template>
-    <modal :name="name">
-        <slot>
-            <button @click="handleClose()" class="modal-button modal-button_close">
-                Ok
-            </button>
-            <button class="modal-button modal-button_cancel">
-                Cancel
-            </button>
-        </slot>
-    </modal>
+  <modal :name="name">
+    <slot>
+      <button
+        class="modal-button modal-button-ok"
+        @click="handleOK()"
+      >
+        Ok
+      </button>
+      <button
+        class="modal-button modal-button-cancel"
+        @click="handleCancel()"
+      >
+        Cancel
+      </button>
+    </slot>
+  </modal>
 </template>
 
 <script>
-  export default {
-    name: 'MyModal',
+export default {
+  name: 'MyModal',
 
-    props: {
-      name: {
-        type: String,
-        required: true,
-      },
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
 
-      handleClose: {
-        type: Function
-      }
+  methods: {
+    handleOK () {
+      this.$emit('ok-pressed')
     },
-  };
+    handleCancel () {
+      this.$emit('cancel-pressed')
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -38,11 +49,11 @@
         font-weight: bold
     }
 
-    .modal-button_close {
+    .modal-button-ok {
         background: green;
     }
 
-    .modal-button_cancel {
+    .modal-button-cancel {
         background: red;
     }
 </style>

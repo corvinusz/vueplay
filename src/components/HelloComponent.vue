@@ -1,15 +1,22 @@
 <template>
   <div>
     <h1>Hello {{ name }}!</h1>
-    <button @click="handleClick()">Show Modal</button>
+    <button
+      @click="handleBtnClick()"
+    >
+      Show Modal
+    </button>
 
-    <MyModal name="my-modal" :handle-close="handleOk"></MyModal>
+    <MyModal
+      name="my-modal"
+      @ok-pressed="handleDialogOk"
+      @cancel-pressed="handleDialogCancel"
+    />
   </div>
 </template>
 
 <script>
-import MyModal from './MyModal';
-import DialogComponent from './DialogComponent.vue'
+import MyModal from './MyModal'
 
 export default {
   components: {
@@ -24,13 +31,18 @@ export default {
   },
 
   methods: {
-    handleClick (event) {
-      this.$modal.show('my-modal');
+    handleBtnClick () {
+      this.$modal.show('my-modal')
     },
 
-    handleOk() {
-      alert(1);
-      this.$modal.hide('my-modal');
+    handleDialogOk () {
+      alert('OK')
+      this.$modal.hide('my-modal')
+    },
+
+    handleDialogCancel () {
+      alert('Cancel')
+      this.$modal.hide('my-modal')
     }
   }
 }
