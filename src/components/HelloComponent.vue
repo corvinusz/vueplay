@@ -1,54 +1,36 @@
 <template>
-  <div
-    id="hello"
-    @click="handleClick($event)"
-  >
+  <div>
     <h1>Hello {{ name }}!</h1>
-    <modals-container />
+    <button @click="handleClick()">Show Modal</button>
+
+    <MyModal name="my-modal" :handle-close="handleOk"></MyModal>
   </div>
 </template>
 
 <script>
+import MyModal from './MyModal';
 import DialogComponent from './DialogComponent.vue'
 
 export default {
+  components: {
+    MyModal
+  },
+
   props: {
     name: {
       type: String,
       required: true
     }
   },
-  methods: {
 
-    showDialog() {
-      const dialogOptions = {
-        title: 'Confirm action',
-        text: 'Do action ?',
-        buttons: [
-          {
-            title: 'CANCEL',
-            handler: () => {
-              console.log('Cancel pressed')
-              this.$modal.hide(DialogComponent)
-            }
-          },
-          {
-            title: 'OK',
-            default: true,
-            handler: () => {
-              console.log('OK pressed')
-              this.$modal.hide(DialogComponent)
-            }
-          }
-        ]
-      }
-      this.$modal.show(DialogComponent, dialogOptions)
+  methods: {
+    handleClick (event) {
+      this.$modal.show('my-modal');
     },
 
-    handleClick (event) {
-      const targetId = event.currentTarget.id
-      console.log('clicked ' + targetId)
-      this.showDialog()
+    handleOk() {
+      alert(1);
+      this.$modal.hide('my-modal');
     }
   }
 }
