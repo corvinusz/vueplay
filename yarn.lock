@@ -2101,6 +2101,11 @@ eslint-plugin-node@^8.0.1:
     resolve "^1.8.1"
     semver "^5.5.0"
 
+eslint-plugin-only-warn@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-only-warn/-/eslint-plugin-only-warn-1.0.1.tgz#a01e615c36f30baf909ff56ab0605ffe4ea18a37"
+  integrity sha512-ckQiP40oGxrWjxY+UN6qr1DSWgsJwibICzsjBSyv6EPujZ/lta9zDe67ja7a3Wq27LiZ7B1nuBOamuigTxrbtQ==
+
 eslint-plugin-promise@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-4.0.1.tgz#2d074b653f35a23d1ba89d8e976a985117d1c6a2"

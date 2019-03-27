@@ -1,5 +1,10 @@
 <template>
-  <h1>Hello {{ name }}!</h1>
+  <div
+    id="hello"
+    @click="handleClick($event)"
+  >
+    <h1>Hello {{ name }}!</h1>
+  </div>
 </template>
 
 <script>
@@ -8,6 +13,13 @@ export default {
     name: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    handleClick (event) {
+      const targetId = event.currentTarget.id;
+      console.log('clicked ' + targetId);
+      alert('Click!');
     }
   }
 }

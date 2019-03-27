@@ -7,7 +7,10 @@ module.exports = {
         parser: 'esprima'
     },
     extends: ['plugin:vue/recommended', 'standard'],
-    plugins: ['vue'],
+    plugins: [
+        'vue',
+        'only-warn',
+    ],
     rules: {
         semi: 'error'
     }
