@@ -10,7 +10,7 @@
     <div class="checkbox-container">
       <PrettyCheck
         class="p-svg p-curve"
-        color="success"
+        color="primary"
         v-model="form.isDisabled"
       >
         <img slot="extra" class="svg" src="../assets/img/check.svg">
@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss">
   $lsAppHighlight: #009af2;
-  $pretty--color-success: $lsAppHighlight;
+  $pretty--color-primary: $lsAppHighlight;
   @import '~pretty-checkbox/src/pretty-checkbox.scss';
 
   h1 {
