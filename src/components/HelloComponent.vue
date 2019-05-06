@@ -13,23 +13,13 @@
         color="success"
         v-model="form.isDisabled"
       >
-        <!-- svg path -->
-        <svg
-          slot="extra"
-          class="svg svg-icon"
-          viewBox="0 0 20 20"
-        >
-          <path
-            d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
-            style="stroke:white;fill:white"
-          />
-        </svg>
+        <img slot="extra" class="svg" src="../assets/img/check.svg">
         Disabled
       </PrettyCheck>
     </div>
 
     <div>
-      <p> {{ disabledText }}</p>
+      <img v-if="!form.isDisabled" src="../assets/img/wikimedia.svg">
     </div>
 
     <MyModal
@@ -38,25 +28,13 @@
       @cancel-pressed="handleDialogCancel"
     />
   </div>
-  <!--- this template on Pug
-  div
-    h1 Hello {{ name }}!
-    button(@click='handleBtnClick()')
-      | Show Modal
-    .checkbox-container
-      prettycheck.p-svg.p-curve(color='success' v-model='form.isDisabled')
-        // svg path
-        svg.svg.svg-icon(slot='extra' viewbox='0 0 20 20')
-          path(d='M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z' style='stroke:white;fill:white')
-        |         Disabled
-    div
-      p  {{ disabledText }}
-    mymodal(name='my-modal' @ok-pressed='handleDialogOk' @cancel-pressed='handleDialogCancel')
-
+  <!--- checkbox template on Pug
+  .checkbox-container
+    prettycheck.p-svg.p-curve(color='success' v-model='form.isDisabled')
+      img.svg(slot='extra' src='../assets/img/check.svg')
+      | Disabled
   --->
 </template>
-
-
 
 <script>
 import MyModal from './MyModal'
@@ -81,12 +59,6 @@ export default {
         isDisabled: false,
       },
     };
-  },
-
-  computed: {
-    disabledText: function() {
-      return this.form.isDisabled ? 'disabled' : 'enabled'
-    }
   },
 
   methods: {
