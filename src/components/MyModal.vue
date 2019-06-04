@@ -39,21 +39,21 @@ export default {
 }
 </script>
 
-<style scoped>
-    .modal-button {
-        border: 1px solid currentColor;
-        padding: 10px 15px;
-        border-radius: 10px;
-        color: #fff;
-        background: crimson;
-        font-weight: bold
-    }
+<style scoped lang="scss">
+.modal-button {
+    border: 1px solid currentColor;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #fff;
+    background: crimson;
+    font-weight: bold
+}
 
-    .modal-button-ok {
-        background: green;
-    }
+.modal-button-ok {
+    background: green;
+}
 
-    .modal-button-cancel {
-        background: red;
-    }
+.modal-button-cancel {
+    background: red;
+}
 </style>

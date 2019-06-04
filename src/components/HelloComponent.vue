@@ -9,17 +9,24 @@
 
     <div class="checkbox-container">
       <PrettyCheck
+        v-model="form.isDisabled"
         class="p-svg p-curve"
         color="primary"
-        v-model="form.isDisabled"
       >
-        <img slot="extra" class="svg" src="../assets/img/check.svg">
+        <img
+          slot="extra"
+          class="svg"
+          src="../assets/img/check.svg"
+        >
         Disabled
       </PrettyCheck>
     </div>
 
     <div>
-      <img v-if="!form.isDisabled" src="../assets/img/wikimedia.svg">
+      <img
+        v-if="!form.isDisabled"
+        src="../assets/img/wikimedia.svg"
+      >
     </div>
 
     <MyModal
@@ -28,12 +35,6 @@
       @cancel-pressed="handleDialogCancel"
     />
   </div>
-  <!--- checkbox template on Pug
-  .checkbox-container
-    prettycheck.p-svg.p-curve(color='success' v-model='form.isDisabled')
-      img.svg(slot='extra' src='../assets/img/check.svg')
-      | Disabled
-  --->
 </template>
 
 <script>
@@ -53,12 +54,12 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       form: {
-        isDisabled: false,
-      },
-    };
+        isDisabled: false
+      }
+    }
   },
 
   methods: {
@@ -79,18 +80,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  $lsAppHighlight: #009af2;
-  $pretty--color-primary: $lsAppHighlight;
-  @import '~pretty-checkbox/src/pretty-checkbox.scss';
+<style scoped lang="scss">
 
-  h1 {
-    color: red;
-  }
-
-  .checkbox-container {
-    padding: 30px 0;
-    margin: 30px 0;
-  }
-
+h1 {
+  color: #f00;
+}
+.checkbox-container {
+  padding: 30px 0;
+  margin: 30px 0;
+}
 </style>
