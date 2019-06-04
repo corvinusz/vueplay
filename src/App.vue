@@ -1,6 +1,10 @@
 <template>
-  <div class="full-width center-content">
-    <hello-component name="World" />
+  <div id="app">
+    <v-app>
+      <v-content full-width>
+        <hello-component name="World" />
+      </v-content>
+    </v-app>
   </div>
 </template>
 
