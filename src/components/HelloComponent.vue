@@ -2,12 +2,24 @@
   <v-layout justify-center>
     <div>
       <h1>Hello {{ name }}!</h1>
-      <v-chip label color="white" text-color="primary"
+
+      <v-chip
+        label
+        color="white"
+        text-color="primary"
         class="show-modal-button"
         @click="handleBtnClick()"
       >
-        <v-icon left small>fa-plus-circle</v-icon>SHOW MODAL
+        <v-icon
+          left
+          small
+          dark
+        >
+          fa-plus-circle
+        </v-icon>
+        SHOW MODAL
       </v-chip>
+
       <div class="checkbox-container">
         <PrettyCheck
           v-model="form.isDisabled"
@@ -29,10 +41,10 @@
           src="../assets/img/wikimedia.svg"
         >
       </div>
+
       <MyModal
         name="my-modal"
         @ok-pressed="handleDialogOk"
-        @cancel-pressed="handleDialogCancel"
       />
     </div>
   </v-layout>
@@ -69,11 +81,6 @@ export default {
     },
 
     handleDialogOk () {
-      this.$modal.hide('my-modal')
-    },
-
-    handleDialogCancel () {
-      alert('Cancel')
       this.$modal.hide('my-modal')
     }
   }

@@ -1,18 +1,14 @@
 <template>
   <modal :name="name">
     <slot>
-      <button
-        class="modal-button modal-button-ok"
-        @click="handleOK()"
-      >
-        Ok
-      </button>
-      <button
-        class="modal-button modal-button-cancel"
-        @click="handleCancel()"
-      >
-        Cancel
-      </button>
+      <div class="btn-holder">
+        <button
+          class="modal-button modal-button-ok"
+          @click="handleOK()"
+        >
+          Ok
+        </button>
+      </div>
     </slot>
   </modal>
 </template>
@@ -31,29 +27,32 @@ export default {
   methods: {
     handleOK () {
       this.$emit('ok-pressed')
-    },
-    handleCancel () {
-      this.$emit('cancel-pressed')
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+.btn-holder {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  justify-content: center;
+}
+
 .modal-button {
-    border: 1px solid currentColor;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: #fff;
-    background: crimson;
-    font-weight: bold
+  border: 1px solid currentColor;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #fff;
+  background: crimson;
+  font-weight: bold;
 }
 
 .modal-button-ok {
     background: green;
 }
 
-.modal-button-cancel {
-    background: red;
-}
 </style>
