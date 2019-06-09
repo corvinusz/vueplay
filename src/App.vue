@@ -2,18 +2,18 @@
   <div id="app">
     <v-app>
       <v-content full-width>
-        <hello-component name="World" />
+        <Landing name="coder" />
       </v-content>
     </v-app>
   </div>
 </template>
 
 <script>
-import HelloComponent from './components/HelloComponent.vue'
+import Landing from './pages/Landing.vue'
 
 export default {
   components: {
-    HelloComponent
+    Landing
   }
 }
 </script>

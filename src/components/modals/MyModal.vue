@@ -1,16 +1,9 @@
-<template>
-  <modal :name="name">
-    <slot>
-      <div class="btn-holder">
-        <button
-          class="modal-button modal-button-ok"
-          @click="handleOK()"
-        >
-          Ok
-        </button>
-      </div>
-    </slot>
-  </modal>
+<template lang="pug">
+  modal(:name='name')
+    slot
+      .btn-holder
+        button.modal-button.modal-button-ok(@click='handleOK()')
+          | Ok
 </template>
 
 <script>

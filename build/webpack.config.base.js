@@ -22,18 +22,36 @@ module.exports = {
   module: {
     rules: [
       {
+        // this applies to eslint
         test: /\.(js|vue)$/,
         use: 'eslint-loader',
         enforce: 'pre'
-      }, {
+      },
+      {
+        test: /\.pug$/,
+        oneOf: [
+          // this applies to `<template lang="pug">` in Vue components
+          {
+            resourceQuery: /^\?vue/,
+            use: ['pug-plain-loader']
+          },
+          // this applies to pug imports inside JavaScript
+          {
+            use: ['raw-loader', 'pug-plain-loader']
+          }
+        ]
+      },
+      {
         test: /\.vue$/,
         use: 'vue-loader'
-      }, {
+      },
+      {
         test: /\.js$/,
         use: {
           loader: 'babel-loader'
         }
-      }, {
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         use: {
           loader: 'url-loader',
@@ -42,7 +60,8 @@ module.exports = {
             name: utils.assetsPath('img/[name].[hash:7].[ext]')
           }
         }
-      }, {
+      },
+      {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         use: {
           loader: 'url-loader',
