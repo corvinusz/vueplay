@@ -10,7 +10,7 @@
         @click='handleBtnClick()'
       )
         v-icon(left='', small='', dark='')
-          | fa-plus-circle
+          | $vuetify.icons.plus
         | SHOW MODAL
 
       //- checkbox with icon
