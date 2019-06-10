@@ -1,10 +1,9 @@
 <template>
-  <div id="app">
-    <v-app>
-      <v-content full-width>
-        <Landing name="coder" />
-      </v-content>
-    </v-app>
+  <div
+    id="app"
+    class="center-content full-width"
+  >
+    <Landing name="coder" />
   </div>
 </template>
 

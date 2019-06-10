@@ -1,32 +1,28 @@
 <template lang="pug">
-  v-layout(justify-center='')
-    div
-      h1 Hello {{ name }}!
+  div.landing__container
+    h1.landing__title Hello {{ name }}!
 
-      //- button with icon
-      v-chip.show-modal-button(
-        color='white',
-        text-color='primary',
-        @click='handleBtnClick()'
+    //- button with icon
+    Button.landing__button__show-modal(@click='handleBtnClick()')
+      | SHOW MODAL
+
+    //- checkbox with icon
+    div.landing__checkbox
+      PrettyCheck.p-svg.p-curve(
+        v-model='form.isDisabled',
+        color='primary'
       )
-        v-icon(left='', small='', dark='')
-          | $vuetify.icons.plus
-        | SHOW MODAL
-
-      //- checkbox with icon
-      div.checkbox-disabled
-        PrettyCheck.p-svg.p-curve(
-          v-model='form.isDisabled',
-          color='primary')
-          img.svg(
-            slot='extra',
-            src='../assets/img/check.svg')
-          |Disabled
-      div
-        img(
-          v-if='!form.isDisabled',
-          src='../assets/img/wikimedia.svg'
+        img.svg(
+          slot='extra',
+          src='../assets/img/check.svg'
         )
+        | Disabled
+    //- image
+    img.landing__image(
+      v-if='!form.isDisabled',
+      src='../assets/img/wikimedia.svg'
+    )
+    //- modal dialog
     MyModal(
       name='my-modal',
       @ok-pressed='handleDialogOk'
@@ -89,15 +85,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.landing {
+  &__title {
+    display: block;
+    color: #f00;
+  }
 
-h1 {
-  color: #f00;
-}
-
-.show-modal-button {
-  margin: 30px 0;
-}
-.checkbox-disabled {
-  margin: 30px 0;
+  &__button__show-modal {
+    width: 100px;
+    margin: 30px auto;
+    display: block;
+  }
+  &__checkbox {
+    margin: 30px auto;
+    display: block;
+  }
+  &__image {
+    display: block;
+    margin: auto;
+  }
 }
 </style>
