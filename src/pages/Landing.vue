@@ -36,6 +36,9 @@
 <script>
 import MyModal from '../components/modals/MyModal'
 import PrettyCheck from 'pretty-checkbox-vue/check'
+import { getData, forAsync } from '../services/dataOne'
+import 'core-js/stable'
+import 'regenerator-runtime'
 
 export default {
   components: {
@@ -54,7 +57,22 @@ export default {
     return {
       form: {
         isDisabled: false
-      }
+      },
+      selectionData: [],
+      total: 0
+    }
+  },
+
+  async mounted () {
+    const page = 0
+    const [error, response] = await forAsync(getData(page))
+    if (error) {
+      console.log(error)
+    } else {
+      const { total, data } = response
+      this.selectionData = data
+      this.total = total
+      console.log(this)
     }
   },
 

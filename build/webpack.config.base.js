@@ -13,7 +13,8 @@ module.exports = {
       'assets': utils.resolve('assets'),
       'pages': utils.resolve('src/pages'),
       'static': utils.resolve('static'),
-      'components': utils.resolve('src/components')
+      'components': utils.resolve('src/components'),
+      'services': utils.resolve('src/services')
     }
   },
 
@@ -46,9 +47,17 @@ module.exports = {
         use: 'vue-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-syntax-dynamic-import'
+            ]
+          }
         }
       },
       {
