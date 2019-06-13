@@ -1,7 +1,8 @@
 <template lang="pug">
   div.landing__container
     h1.landing__title Hello {{ name }}!
-
+    //- selector
+    VSelectDataOne
     //- button with icon
     Button.landing__button__show-modal(@click='handleBtnClick()')
       | SHOW MODAL
@@ -30,16 +31,19 @@
 </template>
 
 <script>
-import MyModal from '../components/modals/MyModal'
-import PrettyCheck from 'pretty-checkbox-vue/check'
-import { getData, forAsync } from '../services/dataOne'
 import 'core-js/stable'
 import 'regenerator-runtime'
+
+import MyModal from '../components/modals/MyModal'
+import PrettyCheck from 'pretty-checkbox-vue/check'
+
+import VSelectDataOne from '../components/selectorDataOne'
 
 export default {
   components: {
     MyModal,
-    PrettyCheck
+    PrettyCheck,
+    VSelectDataOne
   },
 
   props: {
@@ -56,19 +60,6 @@ export default {
       },
       selectionData: [],
       total: 0
-    }
-  },
-
-  async mounted () {
-    const page = 0
-    const [error, response] = await forAsync(getData(page))
-    if (error) {
-      console.log(error)
-    } else {
-      const { total, data } = response
-      this.selectionData = data
-      this.total = total
-      console.log(this)
     }
   },
 

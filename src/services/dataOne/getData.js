@@ -1,15 +1,13 @@
-const PAGING = 10
-
 /**
  * Prepare data to use
  * @param {Object} json
  * @return {Promise<{total: number, data: Array}>}
  */
-export const getData = page => {
+export const getData = (pageSize, pageNum) => {
   let json = require('./dataOne.json')
   const { total } = json
-  let start = Math.min(PAGING * page, total)
-  const data = json.data.slice(start, PAGING)
+  let start = Math.min(pageSize * pageNum, total)
+  const data = json.data.slice(start, start + pageSize)
   return Promise.resolve({ total, data })
 }
 
