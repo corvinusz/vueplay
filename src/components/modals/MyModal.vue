@@ -1,6 +1,7 @@
 <template lang="pug">
   modal(:name='name')
     slot
+      .h1 Test Modal Dialog
       .btn-holder
         button.modal-button.modal-button-ok(@click='handleOK()')
           | Ok

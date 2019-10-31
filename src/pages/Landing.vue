@@ -1,8 +1,6 @@
 <template lang="pug">
   div.landing__container
     h1.landing__title Hello {{ name }}!
-    //- selector
-    VSelectDataOne
     //- button with icon
     Button.landing__button__show-modal(@click='handleBtnClick()')
       | SHOW MODAL
@@ -37,13 +35,10 @@ import 'regenerator-runtime'
 import MyModal from '../components/modals/MyModal'
 import PrettyCheck from 'pretty-checkbox-vue/check'
 
-import VSelectDataOne from '../components/selectorDataOne'
-
 export default {
   components: {
     MyModal,
-    PrettyCheck,
-    VSelectDataOne
+    PrettyCheck
   },
 
   props: {
